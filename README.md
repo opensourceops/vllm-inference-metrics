@@ -16,22 +16,12 @@ A comprehensive metrics collection and monitoring solution for vLLM deployments 
   - [Prerequisites](#prerequisites)
   - [Quick Start](#quick-start)
   - [Configuration](#configuration)
-    - [Environment Variables](#environment-variables)
-    - [Ports](#ports)
-    - [Fluent Bit Configuration](#fluent-bit-configuration)
   - [Monitoring](#monitoring)
-    - [Health Checks](#health-checks)
-    - [Logs](#logs)
   - [Metrics Format](#metrics-format)
   - [Troubleshooting](#troubleshooting)
-    - [Common Issues](#common-issues)
-    - [Service Dependencies](#service-dependencies)
   - [Development](#development)
-    - [Local Testing](#local-testing)
-    - [Configuration Changes](#configuration-changes)
   - [Security Notes](#security-notes)
   - [Production Considerations](#production-considerations)
-  - [License](#license)
 
 ## Overview
 
