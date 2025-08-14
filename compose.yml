@@ -1,0 +1,45 @@
+services:
+  parseable:
+    image: parseable/parseable:edge
+    command: ["parseable", "local-store"]
+    env_file: ./parseable.env
+    volumes:
+      - parseable-staging:/staging
+    ports: ["8080:8000"]
+    restart: unless-stopped
+
+  proxy:
+    image: python:3.11-alpine
+    volumes: ["./proxy.py:/app/proxy.py:ro"]
+    environment:
+      - VLLM_METRICS_URL=<vllm_metrics_url>
+    command: >
+      sh -c "pip install --no-cache-dir flask requests && python /app/proxy.py"
+    ports: ["9090:9090"]
+    restart: unless-stopped
+    depends_on: [parseable]
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "python - <<'PY'\nimport requests;print(requests.get('http://localhost:9090/metrics',timeout=3).status_code)\nPY",
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
+
+  fluentbit:
+    image: fluent/fluent-bit:latest
+    volumes: ["./fluent-bit.conf:/fluent-bit/etc/fluent-bit.conf:ro"]
+    command:
+      ["/fluent-bit/bin/fluent-bit", "-c", "/fluent-bit/etc/fluent-bit.conf"]
+    restart: unless-stopped
+    depends_on:
+      proxy:
+        condition: service_healthy
+      parseable:
+        condition: service_started
+
+volumes:
+  parseable-staging:
