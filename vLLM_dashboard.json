@@ -1,0 +1,334 @@
+{
+  "version": "v1",
+  "title": "vLLM Dashboard",
+  "author": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
+  "dashboardId": "01K2KA8CVR0MZJ9HABPKB65S4D",
+  "created": "2025-08-14T03:33:55.704705Z",
+  "modified": "2025-08-18T09:36:20.622999094Z",
+  "tags": [],
+  "isFavorite": false,
+  "dashboardType": "Dashboard",
+  "tiles": [
+    {
+      "tile_id": "01K2KAAP50YGNSM9DB9AQS7CZV",
+      "title": "KV Cache",
+      "chartQuery": {
+        "x": {
+          "fields": [
+            {
+              "name": "time_unix_nano",
+              "type": "time"
+            }
+          ],
+          "granularity": "minute"
+        },
+        "y": {
+          "fields": [
+            {
+              "name": "calculate_kv_scales",
+              "aggregate": "COUNT"
+            }
+          ],
+          "groupBy": []
+        },
+        "filters": []
+      },
+      "dbName": "vLLMmetrics",
+      "chartType": "timeseries",
+      "config": {
+        "type": "bar",
+        "colourScheme": "forest",
+        "layout": {
+          "legendPosition": "bottom",
+          "label": false
+        },
+        "axes": {
+          "x": {
+            "field": "time_bucket",
+            "title": "time_unix_nano"
+          },
+          "y": {
+            "field": "COUNT_calculate_kv_scales",
+            "title": "calculate_kv_scales"
+          }
+        },
+        "advanced": {
+          "dataLabels": {
+            "enabled": false
+          },
+          "tooltip": {
+            "enabled": true,
+            "mode": "index",
+            "intersect": false
+          }
+        }
+      },
+      "layout": {
+        "w": 12,
+        "h": 8,
+        "x": 0,
+        "y": 0,
+        "i": "01K2KAAP50YGNSM9DB9AQS7CZV",
+        "moved": false,
+        "static": false
+      }
+    },
+    {
+      "tile_id": "01K2KADCFYRM7W13NFRH7V6N25",
+      "title": "GPU Usage",
+      "chartQuery": {
+        "x": {
+          "fields": [
+            {
+              "name": "p_timestamp",
+              "type": "time"
+            }
+          ],
+          "granularity": "minute"
+        },
+        "y": {
+          "fields": [
+            {
+              "name": "gpu_memory_utilization",
+              "aggregate": "COUNT"
+            }
+          ],
+          "groupBy": []
+        },
+        "filters": []
+      },
+      "dbName": "vLLMmetrics",
+      "chartType": "timeseries",
+      "config": {
+        "type": "area",
+        "colourScheme": "dusk",
+        "layout": {
+          "legendPosition": "bottom",
+          "label": false
+        },
+        "axes": {
+          "x": {
+            "field": "time_bucket",
+            "title": "Timestamp"
+          },
+          "y": {
+            "field": "COUNT_gpu_memory_utilization",
+            "title": "gpu_memory_utilization"
+          }
+        },
+        "advanced": {
+          "dataLabels": {
+            "enabled": false
+          },
+          "tooltip": {
+            "enabled": true,
+            "mode": "index",
+            "intersect": false
+          }
+        }
+      },
+      "layout": {
+        "w": 6,
+        "h": 9,
+        "x": 0,
+        "y": 17,
+        "i": "01K2KADCFYRM7W13NFRH7V6N25",
+        "moved": false,
+        "static": false
+      }
+    },
+    {
+      "tile_id": "01K2KAG08QPQVAD4D7XX5303E2",
+      "title": "CPU Usage",
+      "chartQuery": {
+        "x": {
+          "fields": [
+            {
+              "name": "p_timestamp",
+              "type": "time"
+            }
+          ],
+          "granularity": "minute"
+        },
+        "y": {
+          "fields": [
+            {
+              "name": "num_cpu_blocks",
+              "aggregate": "COUNT"
+            }
+          ],
+          "groupBy": []
+        },
+        "filters": []
+      },
+      "dbName": "vLLMmetrics",
+      "chartType": "timeseries",
+      "config": {
+        "type": "area",
+        "colourScheme": "cyber",
+        "layout": {
+          "legendPosition": "bottom",
+          "label": false
+        },
+        "axes": {
+          "x": {
+            "field": "time_bucket",
+            "title": "Timestamp"
+          },
+          "y": {
+            "field": "COUNT_num_cpu_blocks",
+            "title": "num_cpu_blocks"
+          }
+        },
+        "advanced": {
+          "dataLabels": {
+            "enabled": false
+          },
+          "tooltip": {
+            "enabled": true,
+            "mode": "index",
+            "intersect": false
+          }
+        }
+      },
+      "layout": {
+        "w": 6,
+        "h": 9,
+        "x": 6,
+        "y": 8,
+        "i": "01K2KAG08QPQVAD4D7XX5303E2",
+        "moved": false,
+        "static": false
+      }
+    },
+    {
+      "tile_id": "01K2KASA60THWW4W24KCH7D119",
+      "title": "CPU KV Space",
+      "chartQuery": {
+        "x": {
+          "fields": [
+            {
+              "name": "p_timestamp",
+              "type": "time"
+            }
+          ],
+          "granularity": "minute"
+        },
+        "y": {
+          "fields": [
+            {
+              "name": "cpu_kvcache_space_bytes",
+              "aggregate": "COUNT"
+            }
+          ],
+          "groupBy": []
+        },
+        "filters": []
+      },
+      "dbName": "vLLMmetrics",
+      "chartType": "timeseries",
+      "config": {
+        "type": "area",
+        "colourScheme": "forest",
+        "layout": {
+          "legendPosition": "bottom",
+          "label": false
+        },
+        "axes": {
+          "x": {
+            "field": "time_bucket",
+            "title": "Timestamp"
+          },
+          "y": {
+            "field": "COUNT_cpu_kvcache_space_bytes",
+            "title": "cpu_kvcache_space_bytes"
+          }
+        },
+        "advanced": {
+          "dataLabels": {
+            "enabled": false
+          },
+          "tooltip": {
+            "enabled": true,
+            "mode": "index",
+            "intersect": false
+          }
+        }
+      },
+      "layout": {
+        "w": 6,
+        "h": 9,
+        "x": 6,
+        "y": 17,
+        "i": "01K2KASA60THWW4W24KCH7D119",
+        "moved": false,
+        "static": false
+      }
+    },
+    {
+      "tile_id": "01K2WA94T8NWZZCSSRTPK6B78D",
+      "title": "Block Size",
+      "chartQuery": {
+        "x": {
+          "fields": []
+        },
+        "y": {
+          "fields": [
+            {
+              "name": "block_size",
+              "aggregate": "COUNT"
+            }
+          ]
+        },
+        "filters": []
+      },
+      "dbName": "vLLMmetrics",
+      "chartType": "gauge",
+      "config": {
+        "type": "gauge",
+        "colourScheme": "forest",
+        "layout": {
+          "legendPosition": "bottom",
+          "label": false,
+          "segments": {
+            "value": [],
+            "isPercent": false
+          },
+          "unit": "",
+          "humanize": true,
+          "precision": 2
+        },
+        "axes": {
+          "x": {
+            "field": "",
+            "title": "",
+            "display": true
+          },
+          "y": {
+            "field": "COUNT_block_size",
+            "title": "block_size"
+          }
+        },
+        "advanced": {
+          "dataLabels": {
+            "enabled": false
+          },
+          "tooltip": {
+            "enabled": true,
+            "mode": "index",
+            "intersect": false
+          }
+        }
+      },
+      "layout": {
+        "w": 6,
+        "h": 9,
+        "x": 0,
+        "y": 8,
+        "i": "01K2WA94T8NWZZCSSRTPK6B78D",
+        "moved": false,
+        "static": false
+      }
+    }
+  ]
+}
