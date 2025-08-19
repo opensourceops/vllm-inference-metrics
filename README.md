@@ -25,7 +25,7 @@ A comprehensive metrics collection and monitoring solution for vLLM deployments 
 
 ## Overview
 
-This repo provides a complete observability stack for vLLM (Very Large Language Model) services by:
+This repo provides a complete observability stack for vLLM services by:
 
 - **Proxying vLLM metrics** with Prometheus-format compatibility fixes
 - **Collecting metrics** using Fluent Bit
