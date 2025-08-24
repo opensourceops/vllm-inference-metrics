@@ -34,7 +34,7 @@ This repo provides a complete observability stack for vLLM services by:
 
 ## Why Monitor vLLM Inference?
 
-Modern AI inference is the future of computational workloads. While open-source models like GPT-OSS-20B deployed on high-performance hardware (GPUs via RunPod) deliver exceptional capabilities, understanding what happens under the hood through metrics provides:
+Modern AI inference is the future of computational workloads. While open models like GPT-OSS-20B deployed on high-performance hardware (GPUs via RunPod) deliver exceptional capabilities, understanding what happens under the hood through metrics provides:
 
 - **Performance optimization** - Identify bottlenecks and resource utilization patterns
 - **Cost control** - Monitor GPU usage and request patterns for efficient scaling
