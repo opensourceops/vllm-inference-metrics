@@ -1,0 +1,31 @@
+receivers:
+  # OTLP receiver that accepts JSON format
+  otlp:
+    protocols:
+      http:
+        endpoint: "0.0.0.0:4318"
+
+processors:
+  batch:
+    timeout: 10s
+    send_batch_size: 100
+
+exporters:
+  otlphttp/parseablemetrics:
+    endpoint: "http://localhost:8000"
+    headers:
+      Authorization: "Basic YWRtaW46YWRtaW4="
+      X-P-Stream: vLLMmetrics
+      X-P-Log-Source: otel-metrics
+    tls:
+      insecure: true
+
+service:
+  telemetry:
+    logs:
+      level: debug
+  pipelines:
+    metrics:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [otlphttp/parseablemetrics]
